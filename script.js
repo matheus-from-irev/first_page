@@ -1,5 +1,10 @@
 document.getElementById("redirect-button").addEventListener("click", function() {
-    let clickId = ""
-    clickId = new URLSearchParams(window.location.search).get("click_id");
-    window.location.href = "https://matheus-from-irev.github.io/second_page?click_id=" + clickId;
-  });
+
+  // INSERT POSTBACK URL OF THE GOAL TYPE HERE
+  var postback = "https://demo-igaming.irev.com/backend/api/v3/goal-type-fire/16?hash=REPLACE"
+  var redirectionPage = "https://secondpage.pages.dev/"
+
+  const clickId = new URLSearchParams(window.location.search).get("click_id");
+  postback = postback.replace("REPLACE", clickId);
+  window.location.href = redirectionPage + "?click_id=" + encodeURIComponent(clickId);
+});
