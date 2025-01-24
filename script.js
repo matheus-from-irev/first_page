@@ -6,5 +6,6 @@ document.getElementById("redirect-button").addEventListener("click", function() 
 
   const clickId = new URLSearchParams(window.location.search).get("click_id");
   postback = postback.replace("REPLACE", clickId);
+  fetch(postback)
   window.location.href = redirectionPage + "?click_id=" + encodeURIComponent(clickId);
 });
